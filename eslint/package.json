@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "eslint": "eslint"
+  },
+  "dependencies": {
+    "eslint": "*",
+    "eslint-formatter-markdown": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-react": "*",
+    "eslint-plugin-jsx-a11y": "*"
+  }
+}
