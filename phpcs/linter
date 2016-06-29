@@ -1,0 +1,5 @@
+#!/bin/bash
+
+PHPCS_FORMAT="${PHPCS_FORMAT:-source}"
+phpcs --standard=PSR2 --report $PHPCS_FORMAT app
+
