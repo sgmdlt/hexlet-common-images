@@ -14,4 +14,4 @@ RUN composer.phar global require "squizlabs/php_codesniffer=*"
 COPY linter linter
 RUN chmod +x linter
 
-ENTRYPOINT ./linter
+CMD ./linter
