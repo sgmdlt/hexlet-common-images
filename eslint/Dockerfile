@@ -1,4 +1,4 @@
-FROM node
+FROM node:8.4.0
 
 WORKDIR /usr/src
 

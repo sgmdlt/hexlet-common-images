@@ -5,27 +5,23 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "extends": [
-      "airbnb-base",
-      "plugin:import/errors",
-      "plugin:import/warnings"
+      "airbnb-base"
     ],
     "parserOptions": {
-      "ecmaVersion": 2017,
-      "sourceType": "module",
       "ecmaFeatures": {
         "experimentalObjectRestSpread": true
       }
     },
     "env": {
       "node": true,
-      "jest": true
+      "jest": true,
+      "browser": true
     }
   },
   "dependencies": {
     "babel-eslint": "*",
     "eslint": "*",
     "eslint-formatter-markdown": "*",
-    "eslint-config-airbnb-base": "*",
-    "eslint-plugin-import": "*"
+    "eslint-config-airbnb-base": "*"
   }
 }
