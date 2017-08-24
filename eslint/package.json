@@ -22,6 +22,7 @@
     "babel-eslint": "*",
     "eslint": "*",
     "eslint-formatter-markdown": "*",
-    "eslint-config-airbnb-base": "*"
+    "eslint-config-airbnb-base": "*",
+    "eslint-plugin-import": "*"
   }
 }
