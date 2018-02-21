@@ -1,11 +1,10 @@
 FROM node:9.3.0
 
-WORKDIR /usr/src
+WORKDIR /linter
 
-COPY package.json /usr/src/
+COPY package.json /linter
 RUN npm install
 
-# COPY .eslintrc.yml /usr/src/.eslintrc.yml
 COPY linter linter
 RUN chmod +x linter
 

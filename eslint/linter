@@ -1,5 +1,4 @@
 #!/bin/bash
 ESLINT_FORMAT="${ESLINT_FORMAT:-stylish}"
 ESLINT_ENV="${ESLINT_ENV:-node}"
-npm run --silent eslint -- --env $ESLINT_ENV --format $ESLINT_FORMAT app
-
+npm run --silent eslint -- --env $ESLINT_ENV --format $ESLINT_FORMAT -c .eslintrc.js /usr/src/app
