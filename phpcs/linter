@@ -4,4 +4,4 @@ export COMPOSER_NO_INTERACTION=1
 export COMPOSER_ALLOW_SUPERUSER=1
 PHPCS_FORMAT="${PHPCS_FORMAT:-source}"
 # COMPOSER_VENDOR_BIN=`composer.phar global config bin-dir --absolute`
-/root/.composer/vendor/bin/phpcs --standard=PSR2 --report=$PHPCS_FORMAT app
+$(dirname $0)/vendor/bin/phpcs --standard=PSR2 --report=$PHPCS_FORMAT /usr/src/app
