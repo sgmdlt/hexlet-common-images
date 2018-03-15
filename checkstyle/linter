@@ -1,0 +1,7 @@
+#!/bin/bash
+dir=$(dirname $0)
+
+echo $dir
+
+java -jar $dir/checkstyle/checkstyle-8.8-all.jar -c $DIR/sun_checks.xml /usr/src/app
+
