@@ -1,6 +1,13 @@
-build:
-	docker build -t hexlet/common-$(N) $(N)
+build: build-php build-js build-java
 
+build-php:
+	docker build -t hexlet/common-phpcs phpcs
+
+build-js:
+	docker build -t hexlet/common-eslint eslint
+
+build-java:
+	docker build -t hexlet/common-checkstyle checkstyle
 bash:
 	docker run -it --read-only hexlet/common-$(N) /bin/bash
 
