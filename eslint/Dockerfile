@@ -3,7 +3,6 @@ FROM node:9.9.0
 WORKDIR /linter
 
 COPY package.json /linter
-COPY .eslintrc.js /linter
 RUN npm install
 
 COPY linter linter

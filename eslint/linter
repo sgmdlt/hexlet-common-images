@@ -1,4 +1,4 @@
 #!/bin/bash
 ESLINT_FORMAT="${ESLINT_FORMAT:-stylish}"
 ESLINT_ENV="${ESLINT_ENV:-node}"
-npm run --silent --prefix $(dirname $0) eslint -- --env $ESLINT_ENV --format $ESLINT_FORMAT -c .eslintrc.js /usr/src/app
+npm run --silent --prefix $(dirname $0) eslint -- --env $ESLINT_ENV --format $ESLINT_FORMAT -c package.json /usr/src/app
