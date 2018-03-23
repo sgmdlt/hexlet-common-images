@@ -7,11 +7,6 @@
     "extends": [
       "airbnb-base"
     ],
-    "parserOptions": {
-      "ecmaFeatures": {
-        "experimentalObjectRestSpread": true
-      }
-    },
     "env": {
       "node": true,
       "jest": true,
