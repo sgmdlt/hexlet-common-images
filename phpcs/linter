@@ -2,6 +2,6 @@
 
 export COMPOSER_NO_INTERACTION=1
 export COMPOSER_ALLOW_SUPERUSER=1
-PHPCS_FORMAT="${PHPCS_FORMAT:-source}"
+PHPCS_FORMAT="${PHPCS_FORMAT:-full}"
 
 $(dirname $0)/vendor/bin/phpcs --standard=PSR2 --report=$PHPCS_FORMAT -s /usr/src/app
