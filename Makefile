@@ -9,7 +9,7 @@ build-js:
 build-java:
 	docker build -t hexlet/common-checkstyle checkstyle
 bash:
-	docker run -it --read-only hexlet/common-$(N) /bin/bash
+	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N) /bin/bash
 
 push:
 	docker push hexlet/common-$(N)

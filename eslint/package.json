@@ -5,15 +5,25 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "extends": [
-      "airbnb-base"
+      "airbnb-base",
+      "plugin:react/recommended"
     ],
     "env": {
       "node": true,
       "jest": true,
       "browser": true
     },
+    "plugins": [
+      "react"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
     "rules": {
-      "import/no-unresolved": "off"
+      "import/no-unresolved": "off",
+      "react/jsx-uses-vars": "error"
     }
   },
   "dependencies": {
