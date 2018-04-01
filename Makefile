@@ -8,11 +8,16 @@ build-js:
 
 build-java:
 	docker build -t hexlet/common-checkstyle checkstyle
+
 bash:
 	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N) /bin/bash
 
 push:
 	docker push hexlet/common-$(N)
 
-lint:
-	docker run -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N)
+lint-js:
+	docker run -t -v $(CURDIR)/eslint/app:/usr/src/app \
+	  -v $(CURDIR)/eslint/package.json:/linter/package.json \
+	  -v $(CURDIR)/eslint/.eslintrc.yml:/linter/.eslintrc.yml \
+	  -v $(CURDIR)/eslint/lint:/linter/lint \
+	  --read-only hexlet/common-eslint
