@@ -9,8 +9,8 @@ ENV NODE_ENV production
 
 RUN npm install
 
-COPY lint .
-RUN chmod +x lint
+COPY linter .
+RUN chmod +x linter
 
 VOLUME /tmp
 
