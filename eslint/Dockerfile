@@ -14,4 +14,4 @@ RUN chmod +x lint
 
 VOLUME /tmp
 
-CMD ./lint
+CMD ./linter
