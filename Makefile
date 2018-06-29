@@ -1,4 +1,4 @@
-build: build-php build-js build-java
+build: build-php build-js build-java build-null
 
 build-php:
 	docker build -t hexlet/common-phpcs phpcs
@@ -8,6 +8,9 @@ build-js:
 
 build-java:
 	docker build -t hexlet/common-checkstyle checkstyle
+
+build-null:
+	docker build -t hexlet/common-nulllint nulllint
 
 bash:
 	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N) /bin/bash

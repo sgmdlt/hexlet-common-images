@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo 'There is no linter for this exercise.'
+
