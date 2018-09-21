@@ -13,7 +13,7 @@ build-null:
 	docker build -t hexlet/common-nulllint nulllint
 
 bash:
-	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app -v $(CURDIR)/$(N):/linter hexlet/common-$(N) /bin/bash
+	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N) /bin/bash
 
 push:
 	docker push hexlet/common-$(N)
