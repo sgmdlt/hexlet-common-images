@@ -1,9 +1,11 @@
-import { cons } from 'hexlet-pairs';
-import f from './f';
+import {
+  cons, car, cdr, pair,
+} from 'hexlet-pairs';
+// import f from './f';
 
-f();
-var b = A();
+// f();
+// const b = A();
 
-const square = (a) => a ** 2;
+// const square = a => a ** 2;
 
-export { square };
+// export { square };
