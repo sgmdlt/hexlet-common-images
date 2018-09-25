@@ -1,4 +1,4 @@
 #!/bin/bash
 
 ESLINT_FORMAT="${ESLINT_FORMAT:-stylish}"
-npm run --silent --no-update-notifier --prefix $(dirname $0) eslint -- --format $ESLINT_FORMAT -c .eslintrc.yml --ext js,jsx /usr/src/app
+/usr/src/linter/node_modules/.bin/eslint -f $ESLINT_FORMAT  -c /usr/src/linter/.eslintrc.yml --ext .js,.jsx /usr/src/app

@@ -1,6 +1,4 @@
-import {
-  cons, car, cdr, pair,
-} from 'hexlet-pairs';
+import { cons, car, cdr, pair, } from 'hexlet-pairs';
 // import f from './f';
 
 // f();
