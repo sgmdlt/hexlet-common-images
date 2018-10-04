@@ -4,13 +4,12 @@ WORKDIR /linter
 
 COPY composer.json composer.json
 
-RUN /linter/composer.phar install
+RUN composer global require squizlabs/php_codesniffer
 
 COPY linter linter
 RUN chmod +x linter
 
 ADD app /usr/src/app
 VOLUME /tmp
-# VOLUME /root/.composer/cache
 
 CMD ./linter

@@ -22,5 +22,10 @@ lint-js:
 	docker run -t -v $(CURDIR)/eslint/app:/usr/src/app \
 	  -v $(CURDIR)/eslint/package.json:/linter/package.json \
 	  -v $(CURDIR)/eslint/.eslintrc.yml:/linter/.eslintrc.yml \
-	  -v $(CURDIR)/eslint/lint:/linter/lint \
+	  -v $(CURDIR)/eslint/linter:/linter/lint \
 	  --read-only hexlet/common-eslint
+
+lint-php:
+	docker run -t -v $(CURDIR)/phpcs/app:/usr/src/app \
+	  -v $(CURDIR)/phpcs/linter:/linter/lint \
+	  --read-only hexlet/common-phpcs
