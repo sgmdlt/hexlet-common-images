@@ -1,4 +1,4 @@
-FROM node:9.10.0
+FROM node:10.11-slim
 
 WORKDIR /linter
 
