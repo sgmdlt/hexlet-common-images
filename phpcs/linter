@@ -2,5 +2,6 @@
 
 export COMPOSER_NO_INTERACTION=1
 PHPCS_FORMAT="${PHPCS_FORMAT:-full}"
+LINTER_BIN_DIR=$(dirname $0)
 
-composer run-script phpcs -- --standard=PSR2 --report=$PHPCS_FORMAT -s /usr/src/app
+$LINTER_BIN_DIR/vendor/bin/phpcs -- --standard=PSR2 --report=$PHPCS_FORMAT -s /usr/src/app
