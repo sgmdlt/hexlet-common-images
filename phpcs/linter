@@ -3,4 +3,4 @@
 export COMPOSER_NO_INTERACTION=1
 PHPCS_FORMAT="${PHPCS_FORMAT:-full}"
 
-$COMPOSER_HOME/vendor/bin/phpcs --standard=PSR2 --report=$PHPCS_FORMAT -s /usr/src/app
+composer run-script phpcs -- --standard=PSR2 --report=$PHPCS_FORMAT -s /usr/src/app

@@ -10,8 +10,7 @@ ENV NODE_ENV production
 RUN npm install
 
 COPY linter .
-RUN chmod +x linter
 
-VOLUME /tmp
+# VOLUME /tmp
 
 CMD ./linter

@@ -19,13 +19,14 @@ push:
 	docker push hexlet/common-$(N)
 
 lint-js:
-	docker run -t -v $(CURDIR)/eslint/app:/usr/src/app \
+	docker run -t --read-only -v $(CURDIR)/eslint/app:/usr/src/app \
 	  -v $(CURDIR)/eslint/package.json:/linter/package.json \
 	  -v $(CURDIR)/eslint/.eslintrc.yml:/linter/.eslintrc.yml \
-	  -v $(CURDIR)/eslint/linter:/linter/lint \
-	  --read-only hexlet/common-eslint
+	  -v $(CURDIR)/eslint/linter:/linter/linter \
+	  hexlet/common-eslint
 
 lint-php:
-	docker run -t -v $(CURDIR)/phpcs/app:/usr/src/app \
-	  -v $(CURDIR)/phpcs/linter:/linter/lint \
-	  --read-only hexlet/common-phpcs
+	docker run -t --read-only -v $(CURDIR)/phpcs/app:/usr/src/app \
+	  -v $(CURDIR)/phpcs/linter:/linter/linter \
+	  -v $(CURDIR)/phpcs/composer.json:/phpcs/composer.json \
+	  hexlet/common-phpcs
