@@ -6,7 +6,7 @@ COPY linter linter
 RUN chmod +x linter
 
 RUN apt-get update && apt-get install -y unzip && \
-      wget --quiet "https://sourceforge.net/projects/checkstyle/files/checkstyle/8.8/checkstyle-8.8-bin.zip/" -O checkstyle.zip && \
+      wget --quiet "https://github.com/checkstyle/checkstyle/archive/checkstyle-8.14.zip" -O checkstyle.zip && \
       unzip checkstyle && \
       mv checkstyle-* checkstyle && \
       rm checkstyle.zip
