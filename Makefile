@@ -1,7 +1,10 @@
-build: build-php build-js build-java build-null
+build: build-php build-js build-java build-null build-sql
 
 build-php:
 	docker build -t hexlet/common-phpcs phpcs
+
+build-sql:
+	docker build -t hexlet/common-sqlint sqlint
 
 build-js:
 	docker build -t hexlet/common-eslint eslint
@@ -30,3 +33,8 @@ lint-php:
 	  -v $(CURDIR)/phpcs/linter:/linter/linter \
 	  -v $(CURDIR)/phpcs/composer.json:/phpcs/composer.json \
 	  hexlet/common-phpcs
+
+lint-sql:
+	docker run -t --read-only -v $(CURDIR)/phpcs/app:/usr/src/app \
+	  -v $(CURDIR)/sqlint/linter:/linter/linter \
+	  hexlet/common-sqlint
