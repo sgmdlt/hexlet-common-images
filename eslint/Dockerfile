@@ -1,11 +1,13 @@
-FROM node:10.11-slim
+FROM node:11.12-slim
+
+ENV NODE_ENV production
 
 WORKDIR /linter
 
+RUN npm i -g npm-check-updates
+
 COPY package.json .
 COPY .eslintrc.yml .
-
-ENV NODE_ENV production
 
 RUN npm install
 
