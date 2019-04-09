@@ -1,4 +1,4 @@
-build: build-php build-js build-java build-null build-sql
+build: build-php build-js build-java build-null build-sql build-python-flake8
 
 build-php:
 	docker build -t hexlet/common-phpcs phpcs
@@ -14,6 +14,9 @@ build-java:
 
 build-null:
 	docker build -t hexlet/common-nulllint nulllint
+
+build-python-flake8:
+	docker build -t hexlet/common-python-flake8 python-flake8
 
 bash:
 	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N) /bin/bash
@@ -38,3 +41,10 @@ lint-sql:
 	docker run -t --read-only -v $(CURDIR)/phpcs/app:/usr/src/app \
 	  -v $(CURDIR)/sqlint/linter:/linter/linter \
 	  hexlet/common-sqlint
+
+lint-python-flake8:
+	docker run -t --read-only -v $(CURDIR)/python-flake8/app:/usr/src/app \
+	  -v $(CURDIR)/python-flake8/linter:/linter/linter \
+	  -v $(CURDIR)/python-flake8/setup.cfg:/linter/setup.cfg \
+	  hexlet/common-python-flake8
+
