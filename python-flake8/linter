@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export LINTER_DIR=$(dirname $0)
+export PATH=/usr/bin/python:$PATH
 
 $LINTER_DIR/bin/flake8 --config=$LINTER_DIR/setup.cfg /usr/src/app
 
