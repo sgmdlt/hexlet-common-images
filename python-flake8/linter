@@ -2,5 +2,5 @@
 
 export LINTER_DIR=$(dirname $0)
 
-$LINTER_DIR/flake8 --config=$LINTER_DIR/setup.cfg /usr/src/app
+$LINTER_DIR/bin/flake8 --config=$LINTER_DIR/setup.cfg /usr/src/app
 
