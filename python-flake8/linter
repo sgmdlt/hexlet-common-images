@@ -1,7 +1,6 @@
 #!/bin/sh
 
 export LINTER_DIR=$(dirname $0)
-export PATH=/usr/bin/python:$PATH
+export PYTHONPATH=$LINTER_DIR/lib
 
-$LINTER_DIR/bin/flake8 --config=$LINTER_DIR/setup.cfg /usr/src/app
-
+python -m flake8 --config=$LINTER_DIR/setup.cfg /usr/src/app
