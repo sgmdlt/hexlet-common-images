@@ -1,6 +1,6 @@
 FROM python:3.6-alpine
 
-RUN pip install -U wemake-python-styleguide
+RUN pip install -U --target=/linter wemake-python-styleguide
 
 WORKDIR /linter
 
