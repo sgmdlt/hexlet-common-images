@@ -3,4 +3,4 @@
 export LINTER_DIR=$(dirname $0)
 export PYTHONPATH=$LINTER_DIR/lib
 
-python -m flake8 --config=$LINTER_DIR/setup.cfg /usr/src/app
+python3 -m flake8 --config=$LINTER_DIR/setup.cfg /usr/src/app
