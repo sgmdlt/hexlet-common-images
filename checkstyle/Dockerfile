@@ -5,11 +5,7 @@ WORKDIR /linter
 COPY linter linter
 RUN chmod +x linter
 
-RUN apt-get update && apt-get install -y unzip && \
-      wget --quiet "https://github.com/checkstyle/checkstyle/archive/checkstyle-8.14.zip" -O checkstyle.zip && \
-      unzip checkstyle && \
-      mv checkstyle-* checkstyle && \
-      rm checkstyle.zip
+RUN wget --quiet "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.20/checkstyle-8.20-all.jar" -O checkstyle.jar && \
 
 ADD app /usr/src/app
 
