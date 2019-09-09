@@ -2,10 +2,10 @@
   "scripts": {
     "eslint": "eslint"
   },
+  "//": "Use 5.x.x because eslint6 use only local config",
   "dependencies": {
     "babel-eslint": "^10.0.2",
-    "babel-eslint": "^10.0.2",
-    "eslint": "^6.1.0",
+    "eslint": "5.x.x",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-jest": "^22.13.6",
     "eslint-config-airbnb": "^17.1.1",
