@@ -2,7 +2,7 @@ FROM python:3.6-alpine
 
 WORKDIR /linter
 
-RUN pip install -U --target ./lib 'isort<5' wemake-python-styleguide==0.11.1
+RUN pip install -U --target ./lib wemake-python-styleguide==0.14.1
 
 COPY linter linter
 COPY setup.cfg setup.cfg
