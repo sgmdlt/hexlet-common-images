@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "htmlhint": "^0.14.1",
     "stylelint": "^13.6.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0",
