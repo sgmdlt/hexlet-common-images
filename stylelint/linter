@@ -1,5 +1,0 @@
-#!/bin/bash
-
-LINTER_HOME=$(dirname $0)
-
-$LINTER_HOME/node_modules/.bin/stylelint "/usr/src/app/*.css" --config $LINTER_HOME/.stylelintrc.yaml
