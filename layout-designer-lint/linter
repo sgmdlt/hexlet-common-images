@@ -2,5 +2,4 @@
 
 LINTER_HOME=$(dirname $0)
 
-$LINTER_HOME/node_modules/.bin/stylelint "/usr/src/app/**/*.css" --config $LINTER_HOME/.stylelintrc.yaml
-$LINTER_HOME/node_modules/.bin/htmlhint "/usr/src/app/**/*.html" --config $LINTER_HOME/.htmlhintrc
+$LINTER_HOME/node_modules/.bin/stylelint "/usr/src/app/**/*.css" --config $LINTER_HOME/.stylelintrc.yaml && $LINTER_HOME/node_modules/.bin/htmlhint "/usr/src/app/**/*.html" --config $LINTER_HOME/.htmlhintrc
