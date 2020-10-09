@@ -1,4 +1,4 @@
-import { cons, car, cdr, pair, } from 'hexlet-pairs';
+// import { cons, car, cdr, pair, } from 'hexlet-pairs';
 // import f from './f';
 
 // f();
@@ -7,3 +7,9 @@ import { cons, car, cdr, pair, } from 'hexlet-pairs';
 // const square = a => a ** 2;
 
 // export { square };
+
+const _jopa = 'lala';
+
+console.log(__dirname);
+console.log(__filename);
+console.log(_jopa);

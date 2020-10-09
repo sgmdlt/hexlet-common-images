@@ -1,6 +1,7 @@
 FROM ruby
 
 # Проблема в том что SQL выполняется в среде Node.js, а значит там нет рубей. Нам нужен линтер либо в бинарнике, либо на js.
+# https://github.com/sqlfluff/sqlfluff
 
 WORKDIR /linter
 

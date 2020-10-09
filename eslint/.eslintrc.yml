@@ -19,6 +19,11 @@ rules:
   import/no-unresolved: 0
   import/extensions: 0
   react/prop-types: 0
+  no-underscore-dangle:
+    - error
+    - allow:
+      - __dirname
+      - __filename
   react/static-property-placement:
     - error
     - static public field
