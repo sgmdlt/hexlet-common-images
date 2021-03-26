@@ -54,7 +54,7 @@ lint-python-flake8:
 lint-layout-designer:
 	docker run -t --read-only -v $(CURDIR)/layout-designer-lint/app:/usr/src/app \
 	  -v $(CURDIR)/layout-designer-lint/package.json:/linter/package.json \
-	  -v $(CURDIR)/layout-designer-lint/.stylelintrc.yaml:/linter/.stylelintrc.yaml \
+	  -v $(CURDIR)/layout-designer-lint/.stylelintrc:/linter/.stylelintrc \
 	  -v $(CURDIR)/layout-designer-lint/.htmlhintrc:/linter/.htmlhintrc \
 	  -v $(CURDIR)/layout-designer-lint/linter:/linter/linter \
 	  hexlet/common-layout-designer-lint

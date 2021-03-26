@@ -7,7 +7,7 @@ WORKDIR /linter
 RUN npm i -g npm-check-updates
 
 COPY package.json .
-COPY .stylelintrc.yaml .
+COPY .stylelintrc .
 COPY .htmlhintrc .
 
 RUN npm install
