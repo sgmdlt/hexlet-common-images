@@ -10,7 +10,7 @@ RUN chmod +x linter
 
 COPY google_checks_hexlet_edition.xml google_checks_hexlet_edition.xml
 
-RUN wget --quiet "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.36/checkstyle-8.36-all.jar" -O checkstyle.jar
+RUN wget --quiet "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.45.1/checkstyle-8.45.1-all.jar" -O checkstyle.jar
 
 ADD app /usr/src/app
 

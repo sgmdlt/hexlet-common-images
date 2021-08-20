@@ -1,4 +1,4 @@
-FROM composer:1.9.0
+FROM composer:2.1.5
 
 WORKDIR /linter
 
