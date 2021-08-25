@@ -14,6 +14,4 @@ COPY linter .
 
 # VOLUME /tmp
 
-ENV NODE_PATH /linter/node_modules
-
 CMD ./linter
