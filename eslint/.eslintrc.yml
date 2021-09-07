@@ -30,6 +30,3 @@ rules:
     - allow:
       - __dirname
       - __filename
-  react/static-property-placement:
-    - error
-    - static public field
