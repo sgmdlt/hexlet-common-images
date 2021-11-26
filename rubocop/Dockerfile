@@ -12,6 +12,9 @@ RUN bundle config set --local bin '/linter/vendor/bundle/bin'
 COPY Gemfile Gemfile
 RUN bundle install
 
+COPY linter linter
+COPY .rubocop.yml .rubocop.yml
+
 VOLUME /tmp
 
 CMD ./linter
