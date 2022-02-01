@@ -2,5 +2,7 @@
   color: #ffffff;
   max-size: 300px;
 
+  border: 1px solid #fff;
+
   display: block;
 }
