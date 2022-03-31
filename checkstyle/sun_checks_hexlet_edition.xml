@@ -202,6 +202,24 @@
       <property name="optional" value="true"/>
     </module>
 
+    <module name="SuppressionCommentFilter">
+        <property name="offCommentFormat" value="CHECKSTYLE\: stop EqualsHashCode check"/>
+        <property name="onCommentFormat"  value="CHECKSTYLE\: resume EqualsHashCode check"/>
+        <property name="checkFormat" value="EqualsHashCode"/>
+    </module>
+
+    <module name="SuppressionCommentFilter">
+        <property name="offCommentFormat" value="CHECKSTYLE\: stop LeftCurly check"/>
+        <property name="onCommentFormat"  value="CHECKSTYLE\: resume LeftCurly check"/>
+        <property name="checkFormat" value="LeftCurly"/>
+    </module>
+
+    <module name="SuppressionCommentFilter">
+        <property name="offCommentFormat" value="CHECKSTYLE\: stop InnerAssignment check"/>
+        <property name="onCommentFormat"  value="CHECKSTYLE\: resume InnerAssignment check"/>
+        <property name="checkFormat" value="InnerAssignment"/>
+    </module>
+
   </module>
 
 </module>
