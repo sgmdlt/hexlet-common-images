@@ -60,6 +60,7 @@ lint-layout-designer:
 	  -v $(CURDIR)/layout-designer-lint/package.json:/linter/package.json \
 	  -v $(CURDIR)/layout-designer-lint/.stylelintrc:/linter/.stylelintrc \
 	  -v $(CURDIR)/layout-designer-lint/.htmlhintrc:/linter/.htmlhintrc \
+	  -v $(CURDIR)/layout-designer-lint/.pug-lintrc:/linter/.pug-lintrc \
 	  -v $(CURDIR)/layout-designer-lint/linter:/linter/linter \
 	  hexlet/common-layout-designer-lint
 
