@@ -5,7 +5,7 @@ parser: "@babel/eslint-parser"
 parserOptions:
   requireConfigFile: false
   babelOptions:
-    root: /usr/src/app
+    root: /usr/src/linter
 
 extends:
   - airbnb
@@ -31,3 +31,7 @@ rules:
     - allow:
       - __dirname
       - __filename
+  react/function-component-definition:
+    - error
+    - namedComponents: arrow-function
+      unnamedComponents: arrow-function

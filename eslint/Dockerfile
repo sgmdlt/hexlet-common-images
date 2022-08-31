@@ -11,6 +11,7 @@ RUN npm install
 
 COPY .eslintrc.yml .
 COPY linter .
+COPY babel.config.js .
 
 # VOLUME /tmp
 
