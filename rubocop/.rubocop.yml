@@ -37,8 +37,4 @@ Style/YodaCondition:
   Enabled: false
   
 Metrics/BlockLength:
-  Max: 35
-
-Metrics/MethodLength:
-  Max: 35
-
+  Enabled: false
