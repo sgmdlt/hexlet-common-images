@@ -38,3 +38,6 @@ Style/YodaCondition:
   
 Metrics/BlockLength:
   Enabled: false
+
+Style/EachWithObject:
+  Enabled: false
