@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# JavaScript
+ESLINT_FORMAT="${ESLINT_FORMAT:-stylish}"
+LINTER_HOME=$(dirname $0)
+
+NODE_PATH=$LINTER_HOME/node_modules $LINTER_HOME/node_modules/.bin/eslint -f $ESLINT_FORMAT -c $LINTER_HOME/.eslintrc.yml --ext .js,.jsx /usr/src/app
+
+# PHP
+export COMPOSER_NO_INTERACTION=1
+PHPCS_FORMAT="${PHPCS_FORMAT:-full}"
+LINTER_HOME=$(dirname $0)
+
+RULESET=/usr/src/app/php/ruleset.xml
+
+if [ ! -f $RULESET ]
+then
+    RULESET=
+fi
+
+xmlmerge --header --compact -o /tmp/phpcs.xml $LINTER_HOME/phpcs.xml $RULESET
+
+$LINTER_HOME/vendor/bin/phpcs -- --standard=/tmp/phpcs.xml --report=$PHPCS_FORMAT -s /usr/src/app
+
+# Python
+export LINTER_DIR=$(dirname $0)
+export PYTHONPATH=$LINTER_DIR/lib
+
+OUTPUT_CONFIG=/tmp/setup.cfg
+RULESET=/usr/src/app/setup.cfg
+
+cp $LINTER_DIR/setup.cfg $OUTPUT_CONFIG
+
+if [ -f $RULESET ]
+then
+  python3 $PYTHONPATH/bin/crudini --merge $OUTPUT_CONFIG < $RULESET
+fi
+
+python3 -m flake8 --config=$OUTPUT_CONFIG /usr/src/app
