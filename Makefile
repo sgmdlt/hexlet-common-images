@@ -1,4 +1,7 @@
-build: build-php build-js build-java build-null build-sql build-python-flake8 build-layout-designer-lint
+build: build-php build-js build-java build-null build-sql build-python-flake8 build-layout-designer-lint build-multi-language
+
+build-multi-language:
+	docker build -t hexlet/common-multi-language multi-language
 
 build-php:
 	docker build -t hexlet/common-phpcs phpcs
@@ -76,3 +79,12 @@ lint-ruby:
 		-v $(CURDIR)/rubocop/Gemfile:/linter/Gemfile \
 		-v $(CURDIR)/rubocop/.rubocop.yml:/linter/.rubocop.yml \
 		hexlet/common-rubocop
+
+lint-multi-language:
+	docker run -t --read-only -v $(CURDIR)/multi-language/app:/usr/src/app \
+		-v $(CURDIR)/multi-language/package.json:/linter/package.json \
+		-v $(CURDIR)/multi-language/.eslintrc.yml:/linter/.eslintrc.yml \
+		-v $(CURDIR)/multi-language/composer.json:/phpcs/composer.json \
+		-v $(CURDIR)/multi-language/setup.cfg:/linter/setup.cfg \
+		-v $(CURDIR)/multi-language/linter:/linter/linter \
+		hexlet/common-multi-language
