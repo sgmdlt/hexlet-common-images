@@ -3,6 +3,8 @@ FROM ubuntu:22.04
 WORKDIR /linter
 
 # Configure PHP linter
+ARG PHP_VERSION=8.1
+
 COPY --from=composer:2.4.2 /usr/bin/composer /usr/local/bin/composer
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -12,13 +14,7 @@ RUN echo "tzdata tzdata/Areas select Europe" > /tmp/preseed.txt; \
     echo "tzdata tzdata/Zones/Europe select Berlin" >> /tmp/preseed.txt; \
     debconf-set-selections /tmp/preseed.txt && \
     apt-get update && \
-    apt-get install -y tzdata curl git
-
-ARG PHP_VERSION=8.1
-
-RUN apt-get update && apt-get -yq install gwenhywfar-tools
-
-RUN apt-get update && apt-get -yq install php${PHP_VERSION} php${PHP_VERSION}-xml
+    apt-get install -y tzdata curl git gwenhywfar-tools php${PHP_VERSION} php${PHP_VERSION}-xml
 
 COPY composer.json composer.json
 RUN composer install
