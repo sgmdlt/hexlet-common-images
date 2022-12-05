@@ -1,5 +1,6 @@
 #!/bin/bash
 shopt -s globstar
+set -e
 
 LINTER_HOME=$(dirname $0)
 FILE_PATH=/usr/src/app/**/
