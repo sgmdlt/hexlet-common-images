@@ -1,0 +1,3 @@
+#!/bin/sh
+
+golangci-lint run /usr/src/app/...

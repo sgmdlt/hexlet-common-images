@@ -1,4 +1,4 @@
-build: build-php build-js build-java build-null build-sql build-python-flake8 build-layout-designer-lint build-multi-language
+build: build-php build-js build-java build-null build-sql build-python-flake8 build-layout-designer-lint build-multi-language build-go
 
 build-multi-language:
 	docker build -t hexlet/common-multi-language multi-language
@@ -27,8 +27,11 @@ build-layout-designer-lint:
 build-ruby:
 	docker build -t hexlet/common-rubocop rubocop
 
+build-go:
+	docker build -t hexlet/common-golangci-lint golangci-lint
+
 bash:
-	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N) /bin/bash
+	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app hexlet/common-$(N) /bin/bash
 
 push:
 	docker push hexlet/common-$(N)
@@ -89,3 +92,8 @@ lint-multi-language:
 		-v $(CURDIR)/multi-language/sun_checks_hexlet_edition.xml:/linter/sun_checks_hexlet_edition.xml.xml \
 		-v $(CURDIR)/multi-language/linter:/linter/linter \
 		hexlet/common-multi-language
+	
+lint-golangci:
+	docker run -t --read-only -v $(CURDIR)/golangci-lint/app:/usr/src/app \
+		-v $(CURDIR)/golangci-lint/linter:/linter/linter \
+		hexlet/common-golangci-lint
