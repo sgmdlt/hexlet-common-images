@@ -28,38 +28,38 @@ build-ruby:
 	docker build -t hexlet/common-rubocop rubocop
 
 bash:
-	docker run -it -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N) /bin/bash
+	docker run --rm -it -v $(CURDIR)/$(N)/app:/usr/src/app --read-only hexlet/common-$(N) /bin/bash
 
 push:
 	docker push hexlet/common-$(N)
 
 lint-js:
-	docker run -t --read-only -v $(CURDIR)/eslint/app:/usr/src/app \
+	docker run --rm -t --read-only -v $(CURDIR)/eslint/app:/usr/src/app \
 	  -v $(CURDIR)/eslint/package.json:/linter/package.json \
 	  -v $(CURDIR)/eslint/.eslintrc.yml:/linter/.eslintrc.yml \
 	  -v $(CURDIR)/eslint/linter:/linter/linter \
 	  hexlet/common-eslint
 
 lint-php:
-	docker run -t --read-only -v $(CURDIR)/phpcs/app:/usr/src/app \
+	docker run --rm -t --read-only -v $(CURDIR)/phpcs/app:/usr/src/app \
 	  -v $(CURDIR)/phpcs/linter:/linter/linter \
 	  -v $(CURDIR)/phpcs/composer.json:/phpcs/composer.json \
 	  hexlet/common-phpcs
 
 lint-sql:
-	docker run -t --read-only -v $(CURDIR)/sqlint/app:/usr/src/app \
+	docker run --rm -t --read-only -v $(CURDIR)/sqlint/app:/usr/src/app \
 	  -v $(CURDIR)/sqlint/linter:/linter/linter \
 	  -v $(CURDIR)/sqlint/setup.cfg:/linter/setup.cfg \
 	  hexlet/common-sqlint
 
 lint-python-flake8:
-	docker run -t --read-only -v $(CURDIR)/python-flake8/app:/usr/src/app \
+	docker run --rm -t --read-only -v $(CURDIR)/python-flake8/app:/usr/src/app \
 	  -v $(CURDIR)/python-flake8/linter:/linter/linter \
 	  -v $(CURDIR)/python-flake8/setup.cfg:/linter/setup.cfg \
 	  hexlet/common-python-flake8
 
 lint-layout-designer:
-	docker run -t --read-only -v $(CURDIR)/layout-designer-lint/app:/usr/src/app \
+	docker run --rm -t --read-only -v $(CURDIR)/layout-designer-lint/app:/usr/src/app \
 	  -v $(CURDIR)/layout-designer-lint/package.json:/linter/package.json \
 	  -v $(CURDIR)/layout-designer-lint/.stylelintrc:/linter/.stylelintrc \
 	  -v $(CURDIR)/layout-designer-lint/.htmlhintrc:/linter/.htmlhintrc \
@@ -68,20 +68,20 @@ lint-layout-designer:
 	  hexlet/common-layout-designer-lint
 
 lint-java:
-	docker run -t --read-only -v $(CURDIR)/checkstyle/app:/usr/src/app \
-	  -v $(CURDIR)/checkstyle/google_checks_hexlet_edition.xml:/linter/google_checks_hexlet_edition.xml \
+	docker run --rm -t --read-only -v $(CURDIR)/checkstyle/app:/usr/src/app \
+	  -v $(CURDIR)/checkstyle/sun_checks_hexlet_edition.xml:/linter/sun_checks_hexlet_edition.xml \
 	  -v $(CURDIR)/checkstyle/linter:/linter/linter \
 	  hexlet/common-checkstyle
 
 lint-ruby:
-	docker run -t --read-only -v $(CURDIR)/rubocop/app:/usr/src/app \
+	docker run --rm -t --read-only -v $(CURDIR)/rubocop/app:/usr/src/app \
 		-v $(CURDIR)/rubocop/linter:/linter/linter \
 		-v $(CURDIR)/rubocop/Gemfile:/linter/Gemfile \
 		-v $(CURDIR)/rubocop/.rubocop.yml:/linter/.rubocop.yml \
 		hexlet/common-rubocop
 
 lint-multi-language:
-	docker run -t --read-only -v $(CURDIR)/multi-language/app:/usr/src/app \
+	docker run --rm -t --read-only -v $(CURDIR)/multi-language/app:/usr/src/app \
 		-v $(CURDIR)/multi-language/package.json:/linter/package.json \
 		-v $(CURDIR)/multi-language/.eslintrc.yml:/linter/.eslintrc.yml \
 		-v $(CURDIR)/multi-language/composer.json:/phpcs/composer.json \
