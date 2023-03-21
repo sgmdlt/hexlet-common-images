@@ -1,0 +1,3 @@
+run:
+    allow-parallel-runners: true
+    modules-download-mode: readonly

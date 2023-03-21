@@ -94,6 +94,7 @@ lint-multi-language:
 		hexlet/common-multi-language
 	
 lint-golangci:
-	docker run -t --read-only -v $(CURDIR)/golangci-lint/app:/usr/src/app \
+	docker run -t -v $(CURDIR)/golangci-lint/app:/usr/src/app \
 		-v $(CURDIR)/golangci-lint/linter:/linter/linter \
+		-v $(CURDIR)/golangci-lint/.cache:/linter/.cache \
 		hexlet/common-golangci-lint
