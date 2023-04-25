@@ -8,9 +8,17 @@ RULESET=/usr/src/app/setup.cfg
 
 cp $LINTER_DIR/setup.cfg $OUTPUT_CONFIG
 
+#!/bin/sh
+
+export LINTER_DIR=$(dirname $0)
+export PYTHONPATH=$LINTER_DIR/lib
+
+OUTPUT_CONFIG=/tmp/setup.cfg
+RULESET=/usr/src/app/setup.cfg
+
+cp $LINTER_DIR/setup.cfg $OUTPUT_CONFIG
+
 if [ -f $RULESET ]
 then
-  python3 $PYTHONPATH/bin/crudini --merge $OUTPUT_CONFIG < $RULESET
+  python3 -m flake8 --append-config=$RULESET /usr/src/app
 fi
-
-python3 -m flake8 --config=$OUTPUT_CONFIG /usr/src/app
