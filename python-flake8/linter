@@ -3,22 +3,11 @@
 export LINTER_DIR=$(dirname $0)
 export PYTHONPATH=$LINTER_DIR/lib
 
-OUTPUT_CONFIG=/tmp/setup.cfg
 RULESET=/usr/src/app/setup.cfg
-
-cp $LINTER_DIR/setup.cfg $OUTPUT_CONFIG
-
-#!/bin/sh
-
-export LINTER_DIR=$(dirname $0)
-export PYTHONPATH=$LINTER_DIR/lib
-
-OUTPUT_CONFIG=/tmp/setup.cfg
-RULESET=/usr/src/app/setup.cfg
-
-cp $LINTER_DIR/setup.cfg $OUTPUT_CONFIG
 
 if [ -f $RULESET ]
 then
   python3 -m flake8 --append-config=$RULESET /usr/src/app
+else
+  python3 -m flake8 /usr/src/app
 fi
