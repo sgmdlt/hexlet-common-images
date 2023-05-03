@@ -9,5 +9,5 @@ if [ -f $RULESET ]
 then
   python3 -m flake8 --append-config=$RULESET /usr/src/app
 else
-  python3 -m flake8 /usr/src/app
+  python3 -m flake8 --config=$LINTER_DIR/setup.cfg /usr/src/app 
 fi
