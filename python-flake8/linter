@@ -5,6 +5,8 @@ export PYTHONPATH=$LINTER_DIR/lib
 
 RULESET=/usr/src/app/setup.cfg
 
+echo 'linter path = ' $LINTER_DIR
+
 if [ -f $RULESET ]
 then
   python3 -m flake8 --append-config=$RULESET /usr/src/app
