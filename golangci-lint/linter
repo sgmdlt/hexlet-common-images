@@ -1,3 +1,13 @@
 #!/bin/sh
 
-/usr/src/linter/bin/golangci-lint run /usr/src/app/...
+LINTER_DIR=$(dirname $0)
+GO_PATH=$LINTER_DIR/bin
+
+export PATH=$PATH:$GO_PATH
+
+OUTPUT_CONFIG=/tmp/.golangci.yml
+
+cp $LINTER_DIR/.golangci.yml $OUTPUT_CONFIG
+
+cd /usr/src/app
+golangci-lint run --config=$OUTPUT_CONFIG

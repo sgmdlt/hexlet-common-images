@@ -1,19 +1,20 @@
 FROM golang:alpine
 
-RUN apk add --no-cache bash curl
+RUN apk add --no-cache bash
 
 WORKDIR /linter
 ENV GOPATH=/linter
 ENV PATH=$PATH:$GOPATH/bin
 
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.50.0
+RUN wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.52.2
 
 ENV GOFLAGS=-buildvcs=false
-ENV GOLANGCI_LINT_CACHE=/linter/.cache
+ENV GOLANGCI_LINT_CACHE=/tmp/.cache
+ENV GOCACHE=/tmp/.cache
 
-COPY linter linter
-COPY .golangci.yml .golangci.yml
+VOLUME /tmp
 
-RUN chmod +x linter
+COPY linter .
+COPY .golangci.yml .
 
 CMD ./linter
