@@ -1,13 +1,8 @@
 #!/bin/sh
 
-LINTER_DIR=$(dirname $0)
-GO_PATH=$LINTER_DIR/bin
+LINTER_DIR=$(dirname `realpath $0`)
 
-export PATH=$PATH:$GO_PATH
-
-OUTPUT_CONFIG=/tmp/.golangci.yml
-
-cp $LINTER_DIR/.golangci.yml $OUTPUT_CONFIG
+CONFIG=$LINTER_DIR/.golangci.yml
 
 cd /usr/src/app
-golangci-lint run --config=$OUTPUT_CONFIG
+$LINTER_DIR/bin/golangci-lint run --config=$CONFIG
