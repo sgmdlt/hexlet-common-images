@@ -37,9 +37,10 @@ push:
 	docker push hexlet/common-$(N)
 
 lint-js:
-	docker run --rm -t --read-only -v $(CURDIR)/eslint/app:/usr/src/app \
+	docker run --rm -it --read-only -v $(CURDIR)/eslint/app:/usr/src/app \
 	  -v $(CURDIR)/eslint/package.json:/linter/package.json \
 	  -v $(CURDIR)/eslint/.eslintrc.yml:/linter/.eslintrc.yml \
+		-v $(CURDIR)/eslint/tsconfig.json:/linter/tsconfig.json \
 	  -v $(CURDIR)/eslint/linter:/linter/linter \
 	  hexlet/common-eslint
 
@@ -92,7 +93,7 @@ lint-multi-language:
 		-v $(CURDIR)/multi-language/sun_checks_hexlet_edition.xml:/linter/sun_checks_hexlet_edition.xml.xml \
 		-v $(CURDIR)/multi-language/linter:/linter/linter \
 		hexlet/common-multi-language
-	
+
 lint-golangci:
 	docker run --rm -t --read-only -v $(CURDIR)/golangci-lint/app:/usr/src/app \
 		-v $(CURDIR)/golangci-lint/linter:/linter/linter \
