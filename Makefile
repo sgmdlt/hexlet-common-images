@@ -38,44 +38,44 @@ push:
 
 lint-js:
 	docker run --rm -it --read-only -v $(CURDIR)/eslint/app:/usr/src/app \
-	  -v $(CURDIR)/eslint/package.json:/linter/package.json \
-	  -v $(CURDIR)/eslint/.eslintrc.yml:/linter/.eslintrc.yml \
+		-v $(CURDIR)/eslint/package.json:/linter/package.json \
+		-v $(CURDIR)/eslint/.eslintrc.yml:/linter/.eslintrc.yml \
 		-v $(CURDIR)/eslint/tsconfig.json:/linter/tsconfig.json \
-	  -v $(CURDIR)/eslint/linter:/linter/linter \
-	  hexlet/common-eslint
+		-v $(CURDIR)/eslint/linter:/linter/linter \
+		hexlet/common-eslint
 
 lint-php:
 	docker run --rm -t --read-only -v $(CURDIR)/phpcs/app:/usr/src/app \
-	  -v $(CURDIR)/phpcs/linter:/linter/linter \
-	  -v $(CURDIR)/phpcs/composer.json:/phpcs/composer.json \
-	  hexlet/common-phpcs
+		-v $(CURDIR)/phpcs/linter:/linter/linter \
+		-v $(CURDIR)/phpcs/composer.json:/phpcs/composer.json \
+		hexlet/common-phpcs
 
 lint-sql:
 	docker run --rm -t --read-only -v $(CURDIR)/sqlint/app:/usr/src/app \
-	  -v $(CURDIR)/sqlint/linter:/linter/linter \
-	  -v $(CURDIR)/sqlint/setup.cfg:/linter/setup.cfg \
-	  hexlet/common-sqlint
+		-v $(CURDIR)/sqlint/linter:/linter/linter \
+		-v $(CURDIR)/sqlint/setup.cfg:/linter/setup.cfg \
+		hexlet/common-sqlint
 
 lint-python-flake8:
 	docker run --rm -t --read-only -v $(CURDIR)/python-flake8/app:/usr/src/app \
-	  -v $(CURDIR)/python-flake8/linter:/linter/linter \
-	  -v $(CURDIR)/python-flake8/setup.cfg:/linter/setup.cfg \
-	  hexlet/common-python-flake8
+		-v $(CURDIR)/python-flake8/linter:/linter/linter \
+		-v $(CURDIR)/python-flake8/setup.cfg:/linter/setup.cfg \
+		hexlet/common-python-flake8
 
 lint-layout-designer:
 	docker run --rm -t --read-only -v $(CURDIR)/layout-designer-lint/app:/usr/src/app \
-	  -v $(CURDIR)/layout-designer-lint/package.json:/linter/package.json \
-	  -v $(CURDIR)/layout-designer-lint/.stylelintrc:/linter/.stylelintrc \
-	  -v $(CURDIR)/layout-designer-lint/.htmlhintrc:/linter/.htmlhintrc \
-	  -v $(CURDIR)/layout-designer-lint/.pug-lintrc:/linter/.pug-lintrc \
-	  -v $(CURDIR)/layout-designer-lint/linter:/linter/linter \
-	  hexlet/common-layout-designer-lint
+		-v $(CURDIR)/layout-designer-lint/package.json:/linter/package.json \
+		-v $(CURDIR)/layout-designer-lint/.stylelintrc:/linter/.stylelintrc \
+		-v $(CURDIR)/layout-designer-lint/.htmlhintrc:/linter/.htmlhintrc \
+		-v $(CURDIR)/layout-designer-lint/.pug-lintrc:/linter/.pug-lintrc \
+		-v $(CURDIR)/layout-designer-lint/linter:/linter/linter \
+		hexlet/common-layout-designer-lint
 
 lint-java:
 	docker run --rm -t --read-only -v $(CURDIR)/checkstyle/app:/usr/src/app \
-	  -v $(CURDIR)/checkstyle/sun_checks_hexlet_edition.xml:/linter/sun_checks_hexlet_edition.xml \
-	  -v $(CURDIR)/checkstyle/linter:/linter/linter \
-	  hexlet/common-checkstyle
+		-v $(CURDIR)/checkstyle/sun_checks_hexlet_edition.xml:/linter/sun_checks_hexlet_edition.xml \
+		-v $(CURDIR)/checkstyle/linter:/linter/linter \
+		hexlet/common-checkstyle
 
 lint-ruby:
 	docker run --rm -t --read-only -v $(CURDIR)/rubocop/app:/usr/src/app \
