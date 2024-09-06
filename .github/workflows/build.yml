@@ -1,0 +1,74 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOCKER_BUILD_RECORD_UPLOAD: false
+  DOCKER_BUILD_SUMMARY: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      directories: ${{ steps.set_directories.outputs.directories }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            multi-language:
+              - 'multi-language/**'
+            checkstyle:
+              - 'checkstyle/**'
+            sqlint:
+              - 'sqlint/**'
+            phpcs:
+              - 'phpcs/**'
+            layout-designer-lint:
+              - 'layout-designer-lint/**'
+            python-flake8:
+              - 'python-flake8/**'
+            golangci-lint:
+              - 'golangci-lint/**'
+            rubocop:
+              - 'rubocop/**'
+            eslint:
+              - 'eslint/**'
+            nulllint:
+              - 'nulllint/**'
+
+      - id: set_directories
+        run: echo "directories=${{ toJson(steps.changes.outputs.changes) }}" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: prepare
+    if: ${{ needs.prepare.outputs.directories != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        directory: ${{ fromJson(needs.prepare.outputs.directories) }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to YC Registry
+        uses: docker/login-action@v3
+        with:
+          registry: cr.yandex
+          username: ${{ secrets.YCR_USERNAME }}
+          password: ${{ secrets.YCR_PASSWORD }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.directory }}
+          push: true
+          tags: cr.yandex/${{ secrets.YCR_ID }}/common-${{ matrix.directory }}:latest
