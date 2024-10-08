@@ -1,10 +1,10 @@
-FROM python:3.10-slim
+FROM python:3.12-slim
 
 WORKDIR /linter
 
 # https://docs.sqlfluff.com/en/stable/
-RUN pip install -U --target ./lib sqlfluff==2.3.1
+RUN pip install -U --target ./lib sqlfluff==3.2.2
 
 COPY linter .
 
-CMD ./linter
+CMD ["./linter"]
