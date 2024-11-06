@@ -1,0 +1,13 @@
+#!/bin/sh
+
+export LINTER_DIR=$(dirname $0)
+export PYTHONPATH=$LINTER_DIR/lib
+
+RULESET=/usr/src/app/ruff.toml
+
+if [ -f $RULESET ]
+then
+  ruff check /usr/src/app --config=$RULESET
+else
+  ruff check /usr/src/app --config=$LINTER_DIR/ruff.toml
+fi
