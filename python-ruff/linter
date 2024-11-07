@@ -6,7 +6,9 @@ RULESET=/usr/src/app/ruff.toml
 
 if [ -f $RULESET ]
 then
-  $LINTER_HOME/lib/bin/ruff check /usr/src/app --config=$RULESET
+  CONFIG=$RULESET
 else
-  $LINTER_HOME/lib/bin/ruff check /usr/src/app --config=$LINTER_DIR/ruff.toml
+  CONFIG=$LINTER_HOME/ruff.toml
 fi
+
+$LINTER_HOME/lib/bin/ruff check /usr/src/app --config=$CONFIG
