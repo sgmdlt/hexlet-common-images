@@ -1,4 +1,5 @@
 line-length = 80
+cache-dir = "./.ruff-cache"
 
 [lint.per-file-ignores]
   # init modules can contain the local imports, logic, unused imports
@@ -8,7 +9,6 @@ line-length = 80
 [lint]
 preview = true
 select = ["E", "F", "C90", "W"]
-
 
 [lint.mccabe]
 max-complexity = 6

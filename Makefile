@@ -69,8 +69,9 @@ lint-python-ruff:
 	docker run --rm -t --read-only -v $(CURDIR)/python-ruff/app:/usr/src/app \
 	  -v $(CURDIR)/python-ruff/linter:/linter/linter \
 	  -v $(CURDIR)/python-ruff/ruff.toml:/linter/ruff.toml \
-	  -v /var/tmp/.cache \
+	  -v /linter/.ruff-cache \
 	  hexlet/common-python-ruff
+
 
 lint-layout-designer:
 	docker run --rm -t --read-only -v $(CURDIR)/layout-designer-lint/app:/usr/src/app \
