@@ -1,4 +1,5 @@
 line-length = 80
+cache-dir = "/var/tmp/.ruff_cache"
 
 [lint.per-file-ignores]
   # init modules can contain the local imports, logic, unused imports
