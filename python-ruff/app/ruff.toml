@@ -1,0 +1,3 @@
+extend = "/linter/ruff.toml"
+
+line-length = 100

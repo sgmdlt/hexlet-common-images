@@ -1,0 +1,14 @@
+#!/bin/sh
+
+LINTER_HOME=$(dirname $0)
+
+RULESET=/usr/src/app/ruff.toml
+
+if [ -f $RULESET ]
+then
+  CONFIG=$RULESET
+else
+  CONFIG=$LINTER_HOME/ruff.toml
+fi
+
+$LINTER_HOME/lib/bin/ruff check /usr/src/app --config=$CONFIG

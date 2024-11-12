@@ -1,0 +1,14 @@
+line-length = 80
+cache-dir = "/var/tmp/.ruff_cache"
+
+[lint.per-file-ignores]
+  # init modules can contain the local imports, logic, unused imports
+"__init__.py" = ["F401"]
+"test_*.py" = ["E501"]
+
+[lint]
+preview = true
+select = ["E", "F", "C90", "W"]
+
+[lint.mccabe]
+max-complexity = 6

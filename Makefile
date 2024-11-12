@@ -1,4 +1,4 @@
-build: build-php build-js build-java build-null build-sql build-python-flake8 build-layout-designer-lint build-multi-language build-go
+build: build-php build-js build-java build-null build-sql build-python-flake8 build-layout-designer-lint build-multi-language build-go build-python-ruff
 
 build-multi-language:
 	docker build -t hexlet/common-multi-language multi-language
@@ -20,6 +20,9 @@ build-null:
 
 build-python-flake8:
 	docker build -t hexlet/common-python-flake8 python-flake8
+
+build-python-ruff:
+	docker build -t hexlet/common-python-ruff python-ruff
 
 build-layout-designer-lint:
 	docker build -t hexlet/common-layout-designer-lint layout-designer-lint
@@ -61,6 +64,14 @@ lint-python-flake8:
 		-v $(CURDIR)/python-flake8/linter:/linter/linter \
 		-v $(CURDIR)/python-flake8/setup.cfg:/linter/setup.cfg \
 		hexlet/common-python-flake8
+
+lint-python-ruff:
+	docker run --rm -t --read-only -v $(CURDIR)/python-ruff/app:/usr/src/app \
+	  -v $(CURDIR)/python-ruff/linter:/linter/linter \
+	  -v $(CURDIR)/python-ruff/ruff.toml:/linter/ruff.toml \
+	  -v /var/tmp/.ruff_cache \
+	  hexlet/common-python-ruff
+
 
 lint-layout-designer:
 	docker run --rm -t --read-only -v $(CURDIR)/layout-designer-lint/app:/usr/src/app \

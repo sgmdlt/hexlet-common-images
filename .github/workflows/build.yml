@@ -42,6 +42,8 @@ jobs:
               - 'eslint/**'
             nulllint:
               - 'nulllint/**'
+            python-ruff:
+              - 'python-ruff/**'
 
       - id: set_directories
         run: echo "directories=${{ toJson(steps.changes.outputs.changes) }}" >> "$GITHUB_OUTPUT"
